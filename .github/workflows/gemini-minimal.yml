@@ -34,6 +34,7 @@ jobs:
         with:
           gemini_api_key: '${{ secrets.GEMINI_API_KEY }}'
           gemini_debug: 'false'
+          gemini_model: 'gemini-2.5-flash-lite'
           prompt: '${{ inputs.prompt }}'
 
       - name: 'Show Summary'
