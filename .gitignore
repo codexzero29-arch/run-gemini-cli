@@ -61,7 +61,8 @@ Thumbs.db
 .idea/
 
 # gemini-cli settings
-.gemini/
+.gemini/*
+!.gemini/GEMINI.md
 
 # GitHub App credentials
 gha-creds-*.json

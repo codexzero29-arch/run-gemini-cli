@@ -1,0 +1,42 @@
+name: '🤖 Gemini Minimal Test'
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        type: 'string'
+        description: 'Prompt to send to the Gemini CLI'
+        required: false
+        default: 'Reply with exactly: OK'
+
+concurrency:
+  group: '${{ github.workflow }}-${{ github.ref }}'
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: 'bash'
+
+jobs:
+  test:
+    runs-on: 'ubuntu-latest'
+    timeout-minutes: 10
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+    steps:
+      - name: 'Checkout Code'
+        uses: 'actions/checkout@v4'
+
+      - name: 'Run Gemini CLI'
+        id: 'run_gemini'
+        uses: './'
+        with:
+          gemini_api_key: '${{ secrets.GEMINI_API_KEY }}'
+          gemini_debug: 'false'
+          prompt: '${{ inputs.prompt }}'
+
+      - name: 'Show Summary'
+        env:
+          SUMMARY: '${{ steps.run_gemini.outputs.summary }}'
+        run: 'printf "%s\n" "$SUMMARY" >> "$GITHUB_STEP_SUMMARY"'

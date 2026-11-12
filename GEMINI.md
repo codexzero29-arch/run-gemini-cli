@@ -37,3 +37,7 @@ When asked to modify the action, you should:
 2.  **Plan Your Changes:** Propose a plan that includes modifications to all relevant files.
 3.  **Implement and Verify:** Make the changes and ensure the action still functions as expected. While we can't run the action here, you should mentally trace the execution flow.
 4.  **Update Documentation:** Ensure the `README.md` and any relevant examples are updated to reflect your changes.
+
+### Additional Project Context
+
+@.gemini/GEMINI.md
