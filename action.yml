@@ -404,6 +404,7 @@ runs:
       env:
         GEMINI_DEBUG: '${{ fromJSON(inputs.gemini_debug || false) }}'
         GEMINI_API_KEY: '${{ inputs.gemini_api_key }}'
+        GEMINI_CLI_TRUST_WORKSPACE: 'true'
         SURFACE: 'GitHub'
         GOOGLE_CLOUD_PROJECT: '${{ inputs.gcp_project_id }}'
         GOOGLE_CLOUD_LOCATION: '${{ inputs.gcp_location }}'
