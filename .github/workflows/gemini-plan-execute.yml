@@ -1,7 +1,7 @@
 name: '🧙 Gemini Plan Execution'
 
 on:
-  workflow_call:
+  workflow_call: 
     inputs:
       additional_context:
         type: 'string'
